@@ -4,12 +4,24 @@ spring:
     name: weather-api
   config:
     import: optional:file:.env[.properties]
+    activate:
+      on-profile: default
+  main:
+    banner-mode: off
+
+logging:
+  pattern:
+    console:
 
 data-go-kr:
   api:
     key: ${DATA_GO_KR_API_KEY}
   weather:
     url: http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0
+
+---
+spring:
+  config.activate.on-profile: local
 
 logging:
   group:
@@ -18,3 +30,4 @@ logging:
     tomcat: debug
     '[org.apache.hc.client5.http.wire]': debug
     '[org.apache.hc.client5.http]': debug
+
