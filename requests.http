@@ -1,0 +1,9 @@
+GET http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?
+serviceKey=nu9nfRhLDOw682GXZUEVGUZXsCgAlY1s18AiYKxokemQlQljmwbwrj9MfQ%2BhUVAJbTVlyxnd2H%2F1gS4Q%2BRGmrw%3D%3D
+&numOfRows=10
+&pageNo=1
+&dataType=JSON
+&base_date=20250405
+&base_time=1400
+&nx=60
+&ny=127

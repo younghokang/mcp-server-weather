@@ -1,0 +1,20 @@
+---
+spring:
+  application:
+    name: weather-api
+  config:
+    import: optional:file:.env[.properties]
+
+data-go-kr:
+  api:
+    key: ${DATA_GO_KR_API_KEY}
+  weather:
+    url: http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0
+
+logging:
+  group:
+    tomcat: "org.apache.catalina,org.apache.coyote,org.apache.tomcat"
+  level:
+    tomcat: debug
+    '[org.apache.hc.client5.http.wire]': debug
+    '[org.apache.hc.client5.http]': debug
