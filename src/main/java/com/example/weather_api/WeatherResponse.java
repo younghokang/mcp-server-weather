@@ -1,7 +1,5 @@
 package com.example.weather_api;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;

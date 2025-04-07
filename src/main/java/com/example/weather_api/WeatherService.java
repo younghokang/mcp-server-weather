@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -125,7 +124,21 @@ public class WeatherService {
 
             WeatherResponse weatherResponse = builder.build();
             log.info("Weather Response: {}", weatherResponse);
-            return weatherResponse.toString();
+
+            String forecastText = String.format("""
+                        Temperature: %s
+                        Humidity: %s
+                        Precipitation Type: %s
+                        Wind Direction: %s
+                        Wind Speed: %s
+                        Rainfall: %s
+                        East-West Wind Speed: %s
+                        North-South Wind Speed: %s
+                        """, weatherResponse.getTemperature(), weatherResponse.getHumidity(), weatherResponse.getPrecipitationType(),
+                        weatherResponse.getWindDirection(), weatherResponse.getWindSpeed(), weatherResponse.getRainfall(),
+                        weatherResponse.getEastWestWindSpeed(), weatherResponse.getNorthSouthWindSpeed()
+            );
+            return forecastText;
         }
         return "Error retrieving weather data";
     }
